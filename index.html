@@ -17,20 +17,22 @@
         </div>
         <div class="style-options">Style of drawing
 
-            <input id="style-pen" name="style" type="radio" value="pen" checked>
+            <input id="style-pen" name="pen-style" type="radio" value="pen" checked>
             <label for="style-pen">pen</label>
 
-            <input id="style-pixel" name="style" type="radio" value="pixel">
+            <input id="style-pixel" name="pen-style" type="radio" value="pixel">
             <label for="style-pixel">pixel</label>
         </div>
         <div class="color-options"> style of color
-            <input type="radio" name="color-style" id="random-color" checked>
+            <input type="radio" name="color-style" id="random-color" value="random">
             <label for="random-color">random colors</label>
-            <input type="radio" name="color-style" id="fixed-color">
+
+            <input type="radio" name="color-style" id="fixed-color" value="fixed" checked>
             <label for="fixed-color">fixed color</label>
-            <input type="color" value="#ce8a0b">
+
+            <input id="style-color-value" type="color" value="#ce8a0b">
         </div>
-        <input id="submit-btn" type="submit">
+        <input id="submit-btn" type="submit" value="create">
     </form>
     <br>
     <br>

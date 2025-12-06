@@ -24,12 +24,37 @@ function createGrid() {
 
     gridElement.classList.add("grid-element");
     gridElement.style.opacity = "0.1";
-    // gridElement.style.backgroundColor = `rgb(${getRandomNumber()}, ${getRandomNumber()}, ${getRandomNumber()})`;
-    
-    gridElement.addEventListener("pointerdown", () => {
-      gridElement.style.backgroundColor = "black"
-      gridElement.style.opacity = `${0.1 + Number(gridElement.style.opacity) }`
-    });
+
+    // handle color style
+    let drawingStyle = document.querySelector(
+      'input[name="pen-style"]:checked'
+    );
+    let colorStyle = document.querySelector(
+      'input[name="color-style"]:checked'
+    );
+    let color = document.querySelector("#style-color-value");
+
+    if (colorStyle.value === "fixed") {
+      gridElement.style.backgroundColor = color.value;
+    } else {
+      gridElement.style.backgroundColor = `rgb(${getRandomNumber()}, ${getRandomNumber()}, ${getRandomNumber()})`;
+    }
+
+    // handle drawing style
+    if (drawingStyle.value === "pen") {
+      gridElement.addEventListener("mouseover", (event) => {
+        // if (event.shiftKey)
+        gridElement.style.opacity = `${
+          0.1 + Number(gridElement.style.opacity)
+        }`;
+      });
+    } else {
+      gridElement.addEventListener("mousedown", () => {
+        gridElement.style.opacity = `${
+          0.1 + Number(gridElement.style.opacity)
+        }`;
+      });
+    }
 
     gridContainer.appendChild(gridElement);
   }
@@ -38,5 +63,3 @@ submitBtn.addEventListener("click", (event) => {
   event.preventDefault(); // prevent page loading
   createGrid();
 });
-
-createGrid();
