@@ -11,8 +11,25 @@
 
 <body>
     <form class="form">
-        <label for="dimention">input size of pad :</label>
-        <input type="number" id="dimention" name="dimention" min="10" max="64">
+        <div>
+            <label for="dimention">Size of pad :</label>
+            <input type="number" id="dimention" name="dimention" min="10" max="64">
+        </div>
+        <div class="style-options">Style of drawing
+
+            <input id="style-pen" name="style" type="radio" value="pen" checked>
+            <label for="style-pen">pen</label>
+
+            <input id="style-pixel" name="style" type="radio" value="pixel">
+            <label for="style-pixel">pixel</label>
+        </div>
+        <div class="color-options"> style of color
+            <input type="radio" name="color-style" id="random-color" checked>
+            <label for="random-color">random colors</label>
+            <input type="radio" name="color-style" id="fixed-color">
+            <label for="fixed-color">fixed color</label>
+            <input type="color" value="#ce8a0b">
+        </div>
         <input id="submit-btn" type="submit">
     </form>
     <br>

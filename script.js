@@ -3,7 +3,7 @@ let submitBtn = document.querySelector("#submit-btn");
 let gridContainer = document.querySelector("#grid-container");
 
 function createGrid() {
-  if (dimention.value == "") dimention.value = 5;
+  if (dimention.value == "") dimention.value = 16;
   // remove the old grid if existed
   while (gridContainer.hasChildNodes()) {
     gridContainer.removeChild(gridContainer.firstChild);
@@ -26,7 +26,7 @@ function createGrid() {
     gridElement.style.opacity = "0.1";
     // gridElement.style.backgroundColor = `rgb(${getRandomNumber()}, ${getRandomNumber()}, ${getRandomNumber()})`;
     
-    gridElement.addEventListener("mousedown", () => {
+    gridElement.addEventListener("pointerdown", () => {
       gridElement.style.backgroundColor = "black"
       gridElement.style.opacity = `${0.1 + Number(gridElement.style.opacity) }`
     });
