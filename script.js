@@ -3,8 +3,7 @@ let submitBtn = document.querySelector("#submit-btn");
 let gridContainer = document.querySelector("#grid-container");
 
 function createGrid() {
-  if (dimention.value == "")
-     dimention.value = 16;
+  if (dimention.value == "") dimention.value = 16;
   // remove the old grid if existed
   while (gridContainer.hasChildNodes()) {
     gridContainer.removeChild(gridContainer.firstChild);
@@ -19,6 +18,15 @@ function createGrid() {
   while (gridSize--) {
     let gridElement = document.createElement("div");
     gridElement.classList.add("grid-element");
+
+    gridElement.addEventListener(
+      "mouseover",
+      () => {
+        gridElement.style.backgroundColor = "black";
+      },
+      { once: true } // this to remove the event after firing it.
+    );
+
     gridContainer.appendChild(gridElement);
   }
 }
