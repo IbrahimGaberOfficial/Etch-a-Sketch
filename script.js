@@ -2,9 +2,9 @@ let dimention = document.querySelector("#dimention");
 let submitBtn = document.querySelector("#submit-btn");
 let gridContainer = document.querySelector("#grid-container");
 
-submitBtn.addEventListener("click", (event) => {
-  event.preventDefault(); // prevent page loading
-
+function createGrid() {
+  if (dimention.value == "")
+     dimention.value = 16;
   // remove the old grid if existed
   while (gridContainer.hasChildNodes()) {
     gridContainer.removeChild(gridContainer.firstChild);
@@ -21,4 +21,10 @@ submitBtn.addEventListener("click", (event) => {
     gridElement.classList.add("grid-element");
     gridContainer.appendChild(gridElement);
   }
+}
+submitBtn.addEventListener("click", (event) => {
+  event.preventDefault(); // prevent page loading
+  createGrid();
 });
+
+createGrid();
